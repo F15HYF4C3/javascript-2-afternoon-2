@@ -140,18 +140,18 @@ function divider(arr){
   for(i = 0; i < arr.length; i++){
     if(arr[i] % 2 === 0){
     evenNums.push(arr[i]);
-    console.log(evenNums);
+    //console.log(evenNums);
     }else{
       if(arr[i] % 2 !== 0){
         oddNums.push(arr[i]);
-        console.log(oddNums);
+        //console.log(oddNums);
       }
     }
   }return dividedNums;
 }
 
 var separateArrs = divider(numbersArray);
-console.log(separateArrs);
+//console.log(separateArrs);
 
 
 ////////// PROBLEM 7 //////////
@@ -191,19 +191,28 @@ var getRandomArbitrary = function() {
 //Code Here
 
 const arrs = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
-function finder(arrs){
- var result = getRandomArbitrary();//result represent the value of a random number invoked
- console.log('Found '+ result + ' in the array?')
-  for(i = 0; i < arrs.length; i++){//Start at index 0, stop repetition once i is no longer less than the last index, run code (check the conditions), and start over at the next index if noether condition returns an output.
-    console.log(result, arrs.length-1===i);
-   if(result===arrs[i]){//"RandomNumber" MUST be equal to the VALUE your current array index represents
-      return true;//can only be accessed if above "entry key" condition is met
-   }else if(arrs.length-1 === i){//Will only be tested if first condition block is not made accessible to function. This checks the actual index value of i, rather than the element-value that that index represents.
-     return false;//This code is not accessible to the function until the above condition's criteria is met- i.e. until i is equal to the last index-location in the array.
-   
+
+function finder(){
+ var result = getRandomArbitrary();
+ console.log(result);
+  for(i = 0; i < arrs.length; i++){
+   if(result===arrs[i]){
+      return true;
+   }else if(arrs.length-1 === i){
+     return false;
   }
-}//Boolean(result);? Ugh.... I am returning boolean values... Moving on.
+  }
 }
+
+
+//result represent the value of a random number invoked  
+//Start at index 0, stop repetition once i is no longer less than the last index, run code (check the conditions), and start over at the next index if noether condition returns an output.
+//"RandomNumber" MUST be equal to the VALUE your current array index represents
+//can only be accessed if above "entry key" condition is met  
+//Will only be tested if first condition block is not made accessible to function. This checks the actual index value of i, rather than the element-value that that index represents.
+//This code is not accessible to the function until the above condition's criteria is met- i.e. until i is equal to the last index-location in the array.
+//Boolean(result);? Ugh.... I am returning boolean values... Moving on.
+
 
 console.log(finder(arrs));
 
@@ -222,6 +231,8 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //for(i = 0; i < myGroceryList.length; i++){
 //if(rItem === myGroceryList[i]){
       myGroceryList.splice(i, 1);}}  return myGroceryList;}
+
+
   Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. 
 //function addItem(myGroceryList, aItem){
   }
@@ -238,35 +249,43 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-function removeItem(myGroceryList, rItem){
-  for(i = 0; i < myGroceryList.length; i++){
-    if(rItem === myGroceryList[i]){
-      myGroceryList.splice(i, 1);
-      true;
-    }else if(rItem !== myGroceryList[i]){
-      myGroceryList.splice();
-    }
-  }  return myGroceryList;
+function removeItem(groceryList, item){
+  for(i = 0; i < groceryList.length; i++){
+    groceryList[i]===item?
+    groceryList.splice(i, 1)
+    : groceryList = [];
+  }return groceryList;
 }
+//     if(item === groceryList[i]){
+//       groceryList.splice(i, 1);
+//   }else if(groceryList[i] === item){
+//     false;
+//   }return groceryList;
+// }
+// }
 
 var newShortList = removeItem(myGroceryList, 'chips');
 console.log(newShortList);
 
-function addItem(myGroceryList, aItem){
-  for(i = 0; i < myGroceryList.length; i++){
-    if(myGroceryList[i] === aItem){
-      return true;
-    }else{
-      if(myGroceryList[i] !== aItem){
-       return myGroceryList.splice(i, 0, aItem);
-      }
-    }
-  }return myGroceryList;
-}  
+function addItem(groceryList, item){
+  for(i = 0; i < groceryList.length; i++){
+    groceryList[i]!==item?
+    groceryList.push(item)
+    :groceryList = [];
+  }return groceryList;
+}
+//     if(groceryList[i] !== item){
+//       groceryList.push(item);
+//     }else{
+//  if(groceryList[i] === item){
+//    Boolean;
+//  }
+// } return groceryList;
+// }
+//  }  
 
-
-newLongList = addItem(myGroceryList, 'Rolls');
-console.log(newLongList);
+var newGList = addItem(myGroceryList, 'fruit');
+console.log(newGList);
 ////////// PROBLEM 9 //////////
 
 /*
@@ -312,6 +331,7 @@ console.log(laLaLand);
 
 // Do not edit the code below.
 var num1 = Math.floor(Math.random() * 30);
+console.log(num1);
 var num2 = Math.floor(Math.random() * 30);
 var arr1 = [];
 var arr2 = [];
